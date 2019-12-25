@@ -10,10 +10,8 @@ docker build -t robot-docker .
 For run tests using robot type: `docker run robot-docker [args] [tests]`
 
 You can also use "pabot" instead of robot for parallel tests: `docker run robot-docker pabot [args] [tests]`
-option '--testlevelsplit' also supported
+Option '--testlevelsplit' also supported
 
 For more information see:
-
-https://robotframework.org
- 
-https://pabot.org/
+[https://robotframework.org](https://robotframework.org "https://robotframework.org")
+[https://pabot.org/](https://pabot.org/ "https://pabot.org/")
