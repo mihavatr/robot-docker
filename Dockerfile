@@ -38,6 +38,6 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML
 
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["robot"]
 		 
 			
