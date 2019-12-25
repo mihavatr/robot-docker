@@ -10,12 +10,12 @@ docker build -t robot-docker .
 
 For run tests using robot type: 
 ```
-docker run -v "$(pwd)":/testenv robot-docker [args] [tests]
+docker run --rm -v "$(pwd)":/testenv robot-docker [args] [tests]
 ```
 
 You can also use "pabot" instead of robot for parallel tests:
 ```
-docker run -v "$(pwd)":/testenv robot-docker pabot [args] [tests]
+docker run --rm -v "$(pwd)":/testenv robot-docker pabot [args] [tests]
 ```
 Option '--testlevelsplit' also supported
 
