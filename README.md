@@ -14,7 +14,4 @@ You can also use "pabot" instead of robot for parallel tests: `docker run robot-
 Option '--testlevelsplit' also supported
 
 ---
-For more information see:
-[https://robotframework.org](https://robotframework.org "https://robotframework.org") 
-and 
-[https://pabot.org/](https://pabot.org/ "https://pabot.org/")
+For more information visit https://robotframework.org and https://pabot.org/
