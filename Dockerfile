@@ -3,12 +3,11 @@ FROM python:3.7.6-alpine3.10
 MAINTAINER Mikhail Troshechkin <mihavatr@users.noreply.github.com>
 LABEL description Containerized RobotFramework.
 
-RUN mkdir /testenv
+RUN mkdir -p /testenv/robot
 
-ENV ROBOT_PATH /testenv
+ENV ROBOT_PATH /testenv/robot
 
 #Versions
-
 ENV PABOT_VERSION 0.91
 ENV ROBOT_FRAMEWORK_VERSION 3.1.2
 ENV SELENIUM_LIBRARY_VERSION 4.1.0
@@ -38,6 +37,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML
 
-ENTRYPOINT ["robot"]
+WORKDIR /testenv
+CMD ["robot"]
 		 
 			
