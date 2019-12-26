@@ -38,5 +38,3 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
 
 WORKDIR /testenv
 CMD ["robot"]
-		 
-			
