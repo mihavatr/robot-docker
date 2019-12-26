@@ -27,10 +27,9 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     musl-dev \
     openssl-dev \
     which \
-    wget \
+    wget 
   
-  && pip3 install \
-    --no-cache-dir \
+ RUN pip3 install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
