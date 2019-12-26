@@ -34,7 +34,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     robotframework-pabot==$PABOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
-    PyYAML
+    PyYAML==$PYYAML_VERSOIN
 
 WORKDIR /testenv
 CMD ["robot"]
