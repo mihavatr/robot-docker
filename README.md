@@ -9,7 +9,7 @@ cd ./robot-docker
 docker build -t robot-docker .
 ```
 
-For run tests using robot type: 
+For run tests using robot: 
 ```
 docker run --rm -v "$(pwd)":/testenv robot-docker [args] [tests]
 ```
