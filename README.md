@@ -5,6 +5,7 @@ Containerized Robot Framework with SSH and Selenium libraries
 Building image:
 ```
 git clone https://github.com/mihavatr/robot-docker.git
+cd ./robot-docker
 docker build -t robot-docker .
 ```
 
