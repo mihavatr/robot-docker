@@ -5,8 +5,6 @@ LABEL description Containerized RobotFramework.
 
 RUN mkdir -p /testenv/robot
 
-ENV ROBOT_PATH /testenv/robot
-
 #Versions
 ENV PABOT_VERSION 0.91
 ENV ROBOT_FRAMEWORK_VERSION 3.1.2
@@ -29,12 +27,15 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     which \
     wget 
   
- RUN pip3 install --no-cache-dir \
+RUN pip3 install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML==$PYYAML_VERSOIN
 
+RUN  export ROBOT_PATH=/testenv/robot
+
 WORKDIR /testenv
+
 CMD ["robot"]
