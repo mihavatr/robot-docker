@@ -34,8 +34,6 @@ RUN pip3 install --no-cache-dir \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML==$PYYAML_VERSOIN
 
-RUN  export ROBOT_PATH=/testenv/robot
-
 WORKDIR /testenv
 
 CMD ["robot"]
