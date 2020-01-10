@@ -9,9 +9,9 @@ cd ./robot-docker
 docker build -t robot-docker .
 ```
 
-For run tests using robot: 
+For run tests under robotframework: 
 ```
-docker run --rm -v "$(pwd)":/testenv mihavatr/robot-docker [args] [tests]
+docker run --rm -v "$(pwd)":/testenv mihavatr/robot-docker robot [args] [tests]
 ```
 
 You can also use "pabot" instead of robot for parallel tests:
