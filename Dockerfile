@@ -6,11 +6,11 @@ LABEL description Containerized RobotFramework.
 RUN mkdir -p /testenv/robot
 
 #Versions
-ENV PABOT_VERSION 0.91
+ENV PABOT_VERSION 1.0.0
 ENV ROBOT_FRAMEWORK_VERSION 3.1.2
-ENV SELENIUM_LIBRARY_VERSION 4.1.0
+ENV SELENIUM_LIBRARY_VERSION 4.3.0
 ENV SSH_LIBRARY_VERSION 3.4.0
-ENV PYYAML_VERSOIN 5.2
+ENV PYYAML_VERSOIN 5.3
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
