@@ -1,5 +1,5 @@
 ### Robotframework in Docker
-Containerized Robot Framework with SSH and Selenium libraries
+Containerized Robot Framework with SSH, Selenium and SNMP libraries
 
 ---
 Building image:
