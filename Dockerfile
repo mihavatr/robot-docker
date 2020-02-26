@@ -3,7 +3,7 @@ FROM python:3.7.6-alpine3.10
 MAINTAINER Mikhail Troshechkin <mihavatr@users.noreply.github.com>
 LABEL description Containerized RobotFramework.
 
-RUN mkdir -p /testenv/robot
+RUN mkdir /testenv
 
 #Versions
 ENV PABOT_VERSION 1.0.0
@@ -36,6 +36,6 @@ RUN pip3 install --no-cache-dir \
     robotframework-snmplibrary==$SNMPLIBRARY_VERSION \
     PyYAML==$PYYAML_VERSOIN
 
-WORKDIR /testenv
+RUN cd /testenv
 
 CMD ["robot"]
