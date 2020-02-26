@@ -38,4 +38,6 @@ RUN pip3 install --no-cache-dir \
 
 RUN cd /testenv
 
+WORKDIR /testenv
+
 CMD ["robot"]
