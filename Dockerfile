@@ -38,6 +38,8 @@ RUN pip3 install --no-cache-dir \
 
 RUN cd /testenv
 
+RUN export PATH=$PATH:/testenv
+
 WORKDIR /testenv
 
 CMD ["robot"]
