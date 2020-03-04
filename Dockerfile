@@ -10,7 +10,7 @@ ENV PABOT_VERSION 1.0.0
 ENV ROBOT_FRAMEWORK_VERSION 3.1.2
 ENV SELENIUM_LIBRARY_VERSION 4.3.0
 ENV SSH_LIBRARY_VERSION 3.4.0
-ENV PYYAML_VERSOIN 5.3
+ENV PYYAML_VERSION 5.3
 ENV SNMPLIBRARY_VERSION 0.2.1
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
@@ -34,11 +34,7 @@ RUN pip3 install --no-cache-dir \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     robotframework-snmplibrary==$SNMPLIBRARY_VERSION \
-    PyYAML==$PYYAML_VERSOIN
-
-RUN cd /testenv
-
-RUN export PATH=$PATH:/testenv
+    PyYAML==$PYYAML_VERSION
 
 WORKDIR /testenv
 
