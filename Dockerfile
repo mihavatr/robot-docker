@@ -27,15 +27,16 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     openssl-dev \
     which \
     wget \
-  && apk del .build-deps
   
-RUN pip3 install --no-cache-dir \
+  && pip3 install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     robotframework-snmplibrary==$SNMPLIBRARY_VERSION \
-    PyYAML==$PYYAML_VERSION
+    PyYAML==$PYYAML_VERSION \
+  
+  && apk del .build-deps
 
 WORKDIR /testenv
 
