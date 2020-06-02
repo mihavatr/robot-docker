@@ -1,12 +1,12 @@
-FROM python:3.7.6-alpine3.10
+FROM python:3.8.3-alpine3.11
 
-MAINTAINER Mikhail Troshechkin <mihavatr@users.noreply.github.com>
-LABEL description Containerized RobotFramework.
+LABEL maintainer="Mikhail Troshechkin <mihavatr@users.noreply.github.com>"
+LABEL description="Containerized RobotFramework"
 
 RUN mkdir /testenv
 
 #Versions
-ENV PABOT_VERSION 1.6.1
+ENV PABOT_VERSION 1.8.0
 ENV ROBOT_FRAMEWORK_VERSION 3.2.1
 ENV SELENIUM_LIBRARY_VERSION 4.4.0
 ENV SSH_LIBRARY_VERSION 3.4.0
@@ -26,7 +26,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     musl-dev \
     openssl-dev \
     which \
-    wget 
+    wget \
+  && apk del .build-deps
   
 RUN pip3 install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
