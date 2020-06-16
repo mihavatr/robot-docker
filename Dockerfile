@@ -43,7 +43,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
 WORKDIR /testenv
 
 RUN addgroup --gid ${group_id} robot && \
-    adduser --ingroup robot --uid ${user_id} --home --disabled-password /testenv robot
+    adduser --ingroup robot --uid ${user_id} --disabled-password --home /testenv robot
 
 USER robot
 
