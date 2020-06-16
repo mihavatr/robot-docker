@@ -40,11 +40,11 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
   
   && apk del .build-deps
 
+WORKDIR /testenv
+
 RUN addgroup --gid ${group_id} robot && \
-    adduser --ingroup robot --uid ${user_id} --no-log-init --home /testenv robot
+    adduser --ingroup robot --uid ${user_id} --home /testenv robot
 
 USER robot
-
-WORKDIR /testenv
 
 CMD ["robot"]
