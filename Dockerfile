@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.9-alpine
 
 LABEL maintainer="Mikhail Troshechkin <mihavatr@users.noreply.github.com>"
 LABEL description="Containerized RobotFramework"
@@ -8,11 +8,11 @@ ARG user_id=1000
 ARG group_id=1000
 
 #Versions
-ENV PABOT_VERSION 1.10.0
-ENV ROBOT_FRAMEWORK_VERSION 3.2.2
-ENV SELENIUM_LIBRARY_VERSION 4.5.0
-ENV SSH_LIBRARY_VERSION 3.5.1
-ENV PYYAML_VERSION 5.3.1
+ENV PABOT_VERSION 1.11.0
+ENV ROBOT_FRAMEWORK_VERSION 4.0.1
+ENV SELENIUM_LIBRARY_VERSION 5.1.3
+ENV SSH_LIBRARY_VERSION 3.6.0
+ENV PYYAML_VERSION 5.4.1
 ENV SNMPLIBRARY_VERSION 0.2.1
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
