@@ -1,4 +1,4 @@
-FROM python:3.10-rc-alpine
+FROM python:3.9-alpine
 
 LABEL maintainer="Mikhail Troshechkin <mihavatr@users.noreply.github.com>"
 LABEL description="Containerized RobotFramework"
@@ -29,6 +29,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     openssl-dev \
     which \
     wget \
+    cargo \
   
   && pip3 install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
