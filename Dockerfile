@@ -48,7 +48,7 @@ RUN apt update \
   && apt-get clean && apt-get autoclean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN groupadd -g ${group_id} robot && \
-    useradd -g ${group_id} -u ${user_id} -no-create-home robot
+    useradd -g ${group_id} -u ${user_id} --no-create-home robot
 
 WORKDIR /testenv
 
