@@ -18,43 +18,19 @@ ENV SNMPLIBRARY_VERSION 0.2.1
 RUN groupadd -g ${group_id} robot && \
     useradd -g ${group_id} -u ${user_id} -m robot
 
-RUN apt update \
-  && apt-get upgrade -y \
-  && apt-get install -y \
-    gcc \
-    libffi-dev \
-    make \
-    musl-dev \
-    librust-openssl-dev \
-    python3-dev \
-    cargo \
-    wget \
-  
-  && pip3 install --no-cache-dir --upgrade pip setuptools wheel \
-  && pip3 install --no-cache-dir \
+RUN pip install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     robotframework-snmplibrary==$SNMPLIBRARY_VERSION \
-    PyYAML==$PYYAML_VERSION \
+    PyYAML==$PYYAML_VERSION
   
-  && apt-get purge -y \ 
-    gcc \
-    libffi-dev \
-    make \
-    musl-dev \
-    librust-openssl-dev \
-    python3-dev \
-    cargo \
-    wget \
-  && apt-get clean && apt-get autoclean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/
-
 WORKDIR /testenv
 
 USER robot
 
-# Smoketest
-RUN pip3 list && robot --version
+# Smoketest (dont use "robot --version" cause of non-zero exit code)
+RUN which robot
 
 CMD ["robot"]
