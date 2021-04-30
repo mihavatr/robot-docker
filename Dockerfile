@@ -1,4 +1,4 @@
-FROM python:3.10-rc-alpine3.13
+FROM python:3.9-slim-buster
 
 LABEL maintainer="Mikhail Troshechkin <mihavatr@users.noreply.github.com>"
 LABEL description="Containerized RobotFramework"
@@ -15,21 +15,16 @@ ENV SSH_LIBRARY_VERSION 3.6.0
 ENV PYYAML_VERSION 5.4.1
 ENV SNMPLIBRARY_VERSION 0.2.1
 
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
-  && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-  && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-  && apk update \
-  && apk --no-cache upgrade \
-  && apk --no-cache --virtual .build-deps add \
+RUN apt update \
+  && apt-get upgrade -y \
+  && apt-get install -y \
     gcc \
     libffi-dev \
-    linux-headers \
     make \
     musl-dev \
-    openssl-dev \
+    librust-openssl-dev \
     python3-dev \
     cargo \
-    which \
     wget \
   
   && pip3 install --no-cache-dir --upgrade pip setuptools wheel \
@@ -41,12 +36,21 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     robotframework-snmplibrary==$SNMPLIBRARY_VERSION \
     PyYAML==$PYYAML_VERSION \
   
-  && apk del .build-deps
+  && apt-get purge -y \ 
+    gcc \
+    libffi-dev \
+    make \
+    musl-dev \
+    librust-openssl-dev \
+    python3-dev \
+    cargo \
+    wget \
+  && apt-get clean && apt-get autoclean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 WORKDIR /testenv
 
-RUN addgroup --gid ${group_id} robot && \
-    adduser --ingroup robot --uid ${user_id} --disabled-password --home /testenv robot
+RUN groupadd -g ${group_id} robot && \
+    useradd -g ${group_id} -u ${user_id} --no-create-home robot
 
 USER robot
 
