@@ -30,7 +30,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     which \
     wget \
   
-  && pip3 install --no-cache-dir --upgrade pip3 setuptools wheel \
+  && pip3 install --no-cache-dir --upgrade pip setuptools wheel \
   && pip3 install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-pabot==$PABOT_VERSION \
