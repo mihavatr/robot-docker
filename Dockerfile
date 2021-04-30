@@ -54,4 +54,7 @@ WORKDIR /testenv
 
 USER robot
 
+# Smoketest
+RUN pip3 list && robot --version
+
 CMD ["robot"]
