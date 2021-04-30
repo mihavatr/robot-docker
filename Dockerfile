@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.10-rc-alpine3.13
 
 LABEL maintainer="Mikhail Troshechkin <mihavatr@users.noreply.github.com>"
 LABEL description="Containerized RobotFramework"
