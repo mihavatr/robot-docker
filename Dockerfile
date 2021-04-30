@@ -27,6 +27,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     make \
     musl-dev \
     openssl-dev \
+    python3-dev \
+    cargo \
     which \
     wget \
   
