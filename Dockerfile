@@ -30,6 +30,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
     which \
     wget \
     cargo \
+    g++ \
   
   && pip3 install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
