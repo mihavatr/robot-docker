@@ -15,9 +15,6 @@ ENV SSH_LIBRARY_VERSION 3.6.0
 ENV PYYAML_VERSION 5.4.1
 ENV SNMPLIBRARY_VERSION 0.2.1
 
-RUN groupadd -g ${group_id} robot && \
-    useradd -g ${group_id} -u ${user_id} -m robot
-
 RUN apt update \
   && apt-get upgrade -y \
   && apt-get install -y \
@@ -30,8 +27,8 @@ RUN apt update \
     cargo \
     wget \
   
-  && pip3 install --user robot --no-cache-dir --upgrade pip setuptools wheel \
-  && pip3 install --user robot --no-cache-dir \
+  && pip3 install --no-cache-dir --upgrade pip setuptools wheel \
+  && pip3 install --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
@@ -49,6 +46,9 @@ RUN apt update \
     cargo \
     wget \
   && apt-get clean && apt-get autoclean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/
+
+RUN groupadd -g ${group_id} robot && \
+    useradd -g ${group_id} -u ${user_id} -no-create-home robot
 
 WORKDIR /testenv
 
